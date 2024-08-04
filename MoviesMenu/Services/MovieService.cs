@@ -49,7 +49,7 @@ internal class MovieService
         return "Movie updated successfully.";
     }
 
-    public string RemoveMovie(int id)
+    public string RemoveMovie(int? id)
     {
         var movie = movies.FirstOrDefault(m => m.Id == id);
         if (movie == null)
@@ -59,7 +59,7 @@ internal class MovieService
         return $"Movie: {movie.Title} removed from the list";
     }
 
-    public bool CheckMovieExists(int id)
+    public bool CheckMovieExists(int? id)
     {
         return movies.Any(m => m.Id == id);
     }

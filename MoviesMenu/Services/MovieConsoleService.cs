@@ -58,9 +58,7 @@ internal class MovieConsoleService
         {
             var key = Console.ReadKey(true).Key;
             if (key == ConsoleKey.B)
-            {
                 break;
-            }
         }
     }
 
@@ -68,129 +66,105 @@ internal class MovieConsoleService
     {
         Console.Clear();
 
-        // Title
         Console.WriteLine("Enter movie title:");
         string? title = Console.ReadLine();
 
-        // Director
         Console.WriteLine("Enter director name:");
-        string director = Console.ReadLine();
+        string? director = Console.ReadLine();
 
-        // Genre
         Console.WriteLine("Enter genre:");
-        string genre = Console.ReadLine();
+        string? genre = Console.ReadLine();
 
-        // Release Year with type validation
-        Console.WriteLine("Enter release year:");
-        string releaseYear = Console.ReadLine();
-
-        int releaseYearInputValue;
-        bool releaseYearTypeSuccess = int.TryParse(releaseYear, out releaseYearInputValue);
-        while (!releaseYearTypeSuccess)
+        int releaseYear;
+        while (true)
         {
-            Console.WriteLine($"Invalid Input. Enter release year again");
-            releaseYear = Console.ReadLine();
-            releaseYearTypeSuccess = int.TryParse(releaseYear, out releaseYearInputValue);
+            Console.WriteLine("Enter release year:");
+            if (int.TryParse(Console.ReadLine(), out releaseYear))
+                break;
+            
+            Console.WriteLine("Invalid input. Please enter a valid release year.");
         }
-        releaseYearInputValue = int.Parse(releaseYear);
 
-
-        // Price with type validation
-        Console.WriteLine("Enter price:");
-        string price = Console.ReadLine();
-        double priceInputValue;
-        bool priceTypeSuccess = double.TryParse(price, out priceInputValue);
-        while (!priceTypeSuccess)
+        double price;
+        while (true)
         {
-            Console.WriteLine($"Invalid Input. Enter price again");
-            price = Console.ReadLine();
-            priceTypeSuccess = double.TryParse(price, out priceInputValue);
-        }
-        priceInputValue = double.Parse(price);
+            Console.WriteLine("Enter price:");
+            if (double.TryParse(Console.ReadLine(), out price))
+                break;
 
-        string results = _movieService.AddMovie(new Movie(0, title, director, genre, releaseYearInputValue, priceInputValue));
-        Console.WriteLine("\n" + results);
+            Console.WriteLine("Invalid input. Please enter a valid price.");
+        }
+
+        string? result = _movieService.AddMovie(new Movie(0, title, director, genre, releaseYear, price));
+        Console.WriteLine("\n" + result);
 
         Console.WriteLine("\n\nPress 'b' to go back to the main menu.");
 
-        // press b to go back to main menu
         while (true)
         {
-            var key = Console.ReadKey(true).Key;
-            if (key == ConsoleKey.B)
-            {
+            if (Console.ReadKey(true).Key == ConsoleKey.B)
                 break;
-            }
         }
     } // end of AddMovie()
+
 
     public void ModifyMovie()
     {
         Console.Clear();
         Console.Write(_movieService.ListAllMovies());
 
-        Console.WriteLine("\n\nEnter the ID of the movie to modify:");
-        int id = int.Parse(Console.ReadLine());
-        while (!_movieService.CheckMovieExists(id))
+        int id;
+        while (true)
         {
-            Console.WriteLine("\n\nMovie doesn't exist in list, enter a valid Id");
-            id = int.Parse(Console.ReadLine());
+            Console.WriteLine("\n\nEnter the ID of the movie to modify:");
+            if (int.TryParse(Console.ReadLine(), out id) && _movieService.CheckMovieExists(id))
+                break;
+
+            Console.WriteLine("Invalid input or movie doesn't exist. Please enter a valid movie ID.");
         }
 
-        // Title
         Console.WriteLine("Enter movie title:");
-        string title = Console.ReadLine();
+        string? title = Console.ReadLine();
 
-        // Director
         Console.WriteLine("Enter director name:");
-        string director = Console.ReadLine();
+        string? director = Console.ReadLine();
 
-        // Genre
         Console.WriteLine("Enter genre:");
-        string genre = Console.ReadLine();
+        string? genre = Console.ReadLine();
 
-        // Release Year with type validation
-        Console.WriteLine("Enter release year:");
-        string releaseYear = Console.ReadLine();
-
-        int releaseYearInputValue;
-        bool releaseYearTypeSuccess = int.TryParse(releaseYear, out releaseYearInputValue);
-        while (!releaseYearTypeSuccess)
+        int releaseYear;
+        while (true)
         {
-            Console.WriteLine($"Invalid Input. Enter release year again");
-            releaseYear = Console.ReadLine();
-            releaseYearTypeSuccess = int.TryParse(releaseYear, out releaseYearInputValue);
-        }
-        releaseYearInputValue = int.Parse(releaseYear);
+            Console.WriteLine("Enter release year:");
+            if (int.TryParse(Console.ReadLine(), out releaseYear))
+                break;
 
-        // price with type validation
-        Console.WriteLine("Enter price:");
-        string price = Console.ReadLine();
-        double priceInputValue;
-        bool priceTypeSuccess = double.TryParse(price, out priceInputValue);
-        while (!priceTypeSuccess)
+            Console.WriteLine("Invalid input. Please enter a valid release year.");
+        }
+
+        double price;
+        while (true)
         {
-            Console.WriteLine($"Invalid Input. Enter price again");
-            price = Console.ReadLine();
-            priceTypeSuccess = double.TryParse(price, out priceInputValue);
-        }
-        priceInputValue = double.Parse(price);
+            Console.WriteLine("Enter price:");
+            if (double.TryParse(Console.ReadLine(), out price))
+                break;
 
-        string results = _movieService.ModifyMovie(new Movie(id, title, director, genre, releaseYearInputValue, priceInputValue));
+            Console.WriteLine("Invalid input. Please enter a valid price.");
+        }
+
+        string results = _movieService.ModifyMovie(new Movie(id, title, director, genre, releaseYear, price));
         Console.WriteLine("\n" + results);
 
         Console.WriteLine("\n\nPress 'b' to go back to the main menu.");
 
-        // press b to go back to main menu
         while (true)
         {
-            var key = Console.ReadKey(true).Key;
-            if (key == ConsoleKey.B)
-            {
+            if (Console.ReadKey(true).Key == ConsoleKey.B)            
                 break;
-            }
         }
     } // end of ModifyMovie()
+
+
 
     public void RemoveMovie()
     {
@@ -199,11 +173,13 @@ internal class MovieConsoleService
 
         Console.WriteLine("\n\nEnter the ID of the movie to delete: ");
 
-        int id = int.Parse(Console.ReadLine());
-        while (!_movieService.CheckMovieExists(id))
+        int id;
+        while (true)
         {
-            Console.WriteLine("\n\nMovie doesn't exist in list, enter a valid Id");
-            id = int.Parse(Console.ReadLine());
+            if (int.TryParse(Console.ReadLine(), out id) && _movieService.CheckMovieExists(id))
+                break;
+            
+            Console.WriteLine("Invalid input or movie doesn't exist. Please enter a valid movie ID.");
         }
 
         string result = _movieService.RemoveMovie(id);
@@ -214,11 +190,9 @@ internal class MovieConsoleService
         // press b to go back to main menu
         while (true)
         {
-            var key = Console.ReadKey(true).Key;
-            if (key == ConsoleKey.B)
-            {
+            if (Console.ReadKey(true).Key == ConsoleKey.B)
                 break;
-            }
         }
-    } // end of removeMovie()
+    } // end of RemoveMovie()
+
 }
