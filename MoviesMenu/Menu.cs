@@ -9,13 +9,10 @@ public static class Menu
         foreach (Option option in options)
         {
             if (option == selectedOption)
-            {
                 Console.Write("> ");
-            }
+
             else
-            {
                 Console.Write(" ");
-            }
 
             Console.WriteLine(option.Name);
         }

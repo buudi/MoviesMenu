@@ -6,10 +6,8 @@ internal class MovieConsoleService
 {
     private readonly MovieService _movieService;
 
-    public MovieConsoleService(MovieService movieService)
-    {
-        _movieService = movieService;
-    }
+    // constructor shorthand
+    public MovieConsoleService(MovieService movieService) => _movieService = movieService;
 
     public void DisplayMenu(List<Option> menuOptions, int selectedIndex)
     {
