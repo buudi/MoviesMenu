@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesMenu", "MoviesMenu\Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesMenuSql", "..\MoviesMenuSql\MoviesMenuSql\MoviesMenuSql.csproj", "{068DF1A0-7555-43FE-8279-90A062EA2D2D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesMenuEFCore", "..\MoviesMenuEF\MoviesMenuEF\MoviesMenuEFCore.csproj", "{1C2796B7-1DC0-4A5F-BD9E-7D51DB64D71F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesMenuAPI", "..\MoviesMenuAPI\MoviesMenuAPI\MoviesMenuAPI.csproj", "{86E43A5C-1EEF-4852-8CFF-EE1B007FE6E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesMvc", "..\MoviesMvc\MoviesMvc\MoviesMvc.csproj", "{994FA0A2-23D2-4753-9C2E-75928D6E9394}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesMenuEFCore", "..\MoviesMenuEFCore\MoviesMenuEF\MoviesMenuEFCore.csproj", "{E727C337-CE4A-423E-BE7C-86151BD19ED1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,18 +27,10 @@ Global
 		{068DF1A0-7555-43FE-8279-90A062EA2D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{068DF1A0-7555-43FE-8279-90A062EA2D2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{068DF1A0-7555-43FE-8279-90A062EA2D2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C2796B7-1DC0-4A5F-BD9E-7D51DB64D71F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C2796B7-1DC0-4A5F-BD9E-7D51DB64D71F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C2796B7-1DC0-4A5F-BD9E-7D51DB64D71F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C2796B7-1DC0-4A5F-BD9E-7D51DB64D71F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86E43A5C-1EEF-4852-8CFF-EE1B007FE6E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86E43A5C-1EEF-4852-8CFF-EE1B007FE6E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86E43A5C-1EEF-4852-8CFF-EE1B007FE6E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86E43A5C-1EEF-4852-8CFF-EE1B007FE6E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{994FA0A2-23D2-4753-9C2E-75928D6E9394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{994FA0A2-23D2-4753-9C2E-75928D6E9394}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{994FA0A2-23D2-4753-9C2E-75928D6E9394}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{994FA0A2-23D2-4753-9C2E-75928D6E9394}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
